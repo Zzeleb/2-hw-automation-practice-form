@@ -34,7 +34,7 @@ public class AutomationPracticeFormTests {
         $("#firstName").setValue(name);
         $("#lastName").setValue(surname);
         $("#userEmail").setValue(Email);
-        $("#gender-radio-1").parent().click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue(Number);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").selectOption("1985");
