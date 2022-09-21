@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AutomationPracticeFormTests {
@@ -43,10 +44,10 @@ public class AutomationPracticeFormTests {
         $$(".custom-control-label").findBy(text(hobby)).click();
         $("input#uploadPicture").uploadFromClasspath(picture);
         $("#currentAddress").setValue(address);
-        //$$("#stateCity-wrapper").findBy(text("Haryana")).click();
-        //$(".css-1g6gooi").selectOptionContainingText("Haryana");
-        //$("#city").selectOptionContainingText("Karnal");
-
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("Haryana")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Karnal")).click();
         $("#submit").click();
 
         $(".table-responsive").shouldHave(text(name));
@@ -59,5 +60,6 @@ public class AutomationPracticeFormTests {
         $(".table-responsive").shouldHave(text(hobby));
         $(".table-responsive").shouldHave(text(picture));
         $(".table-responsive").shouldHave(text(address));
+        $(".table-responsive").shouldHave(text("Haryana Karnal"));
     }
 }
